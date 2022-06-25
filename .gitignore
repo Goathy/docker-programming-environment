@@ -3,4 +3,6 @@
 !Dockerfile.base
 !dotfiles/
 !dotfiles/*
+!git/
+!git/*
 !Makefile

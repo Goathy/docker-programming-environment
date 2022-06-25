@@ -5,6 +5,12 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+build-git-bionic:
+	@docker image build \
+		--tag "git:bionic" \
+		--file $(shell pwd)/git/Dockerfile \
+		"$(shell pwd)/git"
+
 build-base:
 	@docker image build \
 		--progress="plain" \
