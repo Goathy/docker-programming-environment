@@ -17,7 +17,7 @@ build-git-bionic:
 		--file $(shell pwd)/git/Dockerfile \
 		"$(shell pwd)/git"
 
-build-base-bionic:
+build-base-bionic: build-tmux-bionic
 	@docker image build \
 		--tag "base:bionic" \
 		--file "$(shell pwd)/base/Dockerfile" \
