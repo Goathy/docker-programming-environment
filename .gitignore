@@ -1,10 +1,11 @@
 *
 !README.md
-!Dockerfile.base
-!dotfiles/
-!dotfiles/*
 !git/
 !git/*
 !tmux/
 !tmux/*
+!base/
+!base/*
+!base/dotfiles/
+!base/dotfiles/*
 !Makefile

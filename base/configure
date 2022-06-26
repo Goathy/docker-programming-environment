@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -e
+
+TMUX_URL="https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz"
+OMZ_REPOSITORY="https://github.com/ohmyzsh/ohmyzsh.git"
+ZSH_SYNTAX_HIGHLIGHTER_REPOSITORY="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+DEFAULT_SHELL="/usr/bin/zsh"
+HOME_DIR="/root"
+
+# Install & configure tmux
+/usr/bin/apt-get update -y \
+        && /usr/bin/apt-get install -y \
+        libevent-dev \
+        ncurses-dev \
+        build-essential \
+        bison \
+        pkg-config \
+        python3 \
+        python3-pip \
+        libpq-dev 
+
+# Install additional packages
+/usr/bin/apt-get update -y \
+        && /usr/bin/apt-get install -y \
+        curl \
+        git \
+        jq \
+        less \
+        neovim \
+        zsh
+
+# Build, install & configure tmux
+/usr/bin/curl -L -O "$TMUX_URL" \
+        && /bin/tar -xzf "$(/usr/bin/basename "$TMUX_URL")" \
+        && /bin/rm "$(/usr/bin/basename "$TMUX_URL")" \
+        && cd "$(/usr/bin/basename "$TMUX_URL" ".tar.gz")" \
+        && ./configure \
+        && /usr/bin/make \
+        && /usr/bin/make install \
+        && cd "$HOME_DIR" \
+        && /bin/rm -R "$(/usr/bin/basename "$TMUX_URL" ".tar.gz")" 
+
+# Install OMZ with plugins
+/usr/bin/git clone "$OMZ_REPOSITORY" "$HOME_DIR/.oh-my-zsh" \
+        && /usr/bin/git clone "$ZSH_SYNTAX_HIGHLIGHTER_REPOSITORY" "$HOME_DIR/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+# Install database clients (litecli, pgcli & mycli)
+/usr/bin/apt-get install -y \
+        && /usr/bin/pip3 install litecli \
+        && /usr/bin/pip3 install pgcli \
+        && /usr/bin/pip3 install mycli
