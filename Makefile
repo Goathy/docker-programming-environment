@@ -17,9 +17,8 @@ build-git-bionic:
 		--file $(shell pwd)/git/Dockerfile \
 		"$(shell pwd)/git"
 
-build-base:
+build-base-bionic:
 	@docker image build \
-		--progress="plain" \
-		--tag "base:latest" \
-		--file "$(shell pwd)/Dockerfile.base" \
-		"$(shell pwd)"
+		--tag "base:bionic" \
+		--file "$(shell pwd)/base/Dockerfile" \
+		"$(shell pwd)/base"
