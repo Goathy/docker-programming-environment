@@ -5,20 +5,20 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-build-tmux-bionic: build-git-bionic
+build-git-arch:
 	@docker image build \
-		--tag "tmux:bionic" \
-		--file "$(shell pwd)/tmux/Dockerfile" \
-		"$(shell pwd)/tmux"
-
-build-git-bionic:
-	@docker image build \
-		--tag "git:bionic" \
+		--tag "dpe/git:arch" \
 		--file "$(shell pwd)/git/Dockerfile" \
 		"$(shell pwd)/git"
 
-build-base-bionic: build-tmux-bionic
+build-tmux-arch: build-git-arch
 	@docker image build \
-		--tag "base:bionic" \
+		--tag "dpe/tmux:arch" \
+		--file "$(shell pwd)/tmux/Dockerfile" \
+		"$(shell pwd)/tmux"
+
+build-base-arch: build-tmux-arch
+	@docker image build \
+		--tag "dpe/base:arch" \
 		--file "$(shell pwd)/base/Dockerfile" \
 		"$(shell pwd)/base"
