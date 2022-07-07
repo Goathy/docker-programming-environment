@@ -1,9 +1,9 @@
-FROM ubuntu:18.04
+FROM archlinux:base
 
-COPY "configure" "/tmp/configure"
 
 RUN \
-	/bin/bash /tmp/configure \
-	&& rm /tmp/configure
+	pacman-key --init \
+	&& yes | pacman -Syu \
+	&& yes | pacman -S \
+	git
 
-CMD ["/bin/bash"]
