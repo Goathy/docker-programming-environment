@@ -1,9 +1,8 @@
-FROM git:bionic
-
-COPY "configure" "/tmp/configure"
+FROM dpe/git:arch
 
 RUN \
-        /bin/bash /tmp/configure \
-        && rm /tmp/configure
+	yes | pacman -Syu \
+	&& yes | pacman -S \
+	tmux
 
-CMD ["/bin/bash"]
+CMD ["/usr/bin/tmux", "new-session"]
