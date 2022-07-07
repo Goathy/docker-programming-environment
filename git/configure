@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e 
-
-# Install 'git' package
-apt-get update -y \
- 	&& apt-get install -y \
-	git \
-	&& rm -Rf "/var/lib/apt/lists/*"
