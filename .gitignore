@@ -8,4 +8,6 @@
 !base/*
 !base/dotfiles/
 !base/dotfiles/*
+!node/
+!node/*
 !Makefile
