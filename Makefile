@@ -25,7 +25,7 @@ build-base-arch: build-tmux-arch
 
 build-node14-arch: build-base-arch
 	@docker image build \
-		--build-arg "NODE_VERSION=14.19.3" \
+		--build-arg "NODE_VERSION=14.20.1" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
 		--tag "dpe/node14:arch" \
@@ -34,7 +34,7 @@ build-node14-arch: build-base-arch
 
 build-node16-arch: build-base-arch
 	@docker image build \
-		--build-arg "NODE_VERSION=16.16.0" \
+		--build-arg "NODE_VERSION=16.17.1" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
 		--tag "dpe/node16:arch" \
@@ -43,7 +43,7 @@ build-node16-arch: build-base-arch
 
 build-node18-arch: build-base-arch
 	@docker image build \
-		--build-arg "NODE_VERSION=18.5.0" \
+		--build-arg "NODE_VERSION=18.11.0" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
 		--tag "dpe/node18:arch" \
