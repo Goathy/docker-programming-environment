@@ -6,6 +6,7 @@ ARG USER_GID="$USER_UID"
 ARG HOMEDIR="/home/$USER"
 
 ENV SHELL="/usr/bin/zsh"
+ENV EDITOR="/usr/bin/nvim"
 
 RUN \
 	groupadd --gid $USER_GID $USER \
