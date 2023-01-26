@@ -12,4 +12,6 @@
 !node/*
 !golang/
 !golang/*
+!python/
+!python/*
 !Makefile
