@@ -26,33 +26,23 @@ build-base-arch: build-tmux-arch
 		--file "$(shell pwd)/base/Dockerfile" \
 		"$(shell pwd)/base"
 
-build-node14-arch: build-base-arch
+build-node18: build-base-arch
 	@docker image build \
 		--no-cache \
-		--build-arg "NODE_VERSION=14.20.1" \
+		--build-arg "NODE_VERSION=18.13.0" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
-		--tag "dpe/node14:arch" \
+		--tag "dpe/node:18" \
 		--file "$(shell pwd)/node/Dockerfile" \
 		"$(shell pwd)/node"
 
-build-node16-arch: build-base-arch
+build-node19: build-base-arch
 	@docker image build \
 		--no-cache \
-		--build-arg "NODE_VERSION=16.17.1" \
+		--build-arg "NODE_VERSION=19.5.0" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
-		--tag "dpe/node16:arch" \
-		--file "$(shell pwd)/node/Dockerfile" \
-		"$(shell pwd)/node"
-
-build-node18-arch: build-base-arch
-	@docker image build \
-		--no-cache \
-		--build-arg "NODE_VERSION=18.11.0" \
-		--build-arg "YARN_VERSION=1.22.19" \
-		--build-arg "ARCH=x64" \
-		--tag "dpe/node18:arch" \
+		--tag "dpe/node98:19" \
 		--file "$(shell pwd)/node/Dockerfile" \
 		"$(shell pwd)/node"
 
