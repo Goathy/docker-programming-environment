@@ -1,4 +1,4 @@
-FROM dpe/git:arch
+FROM dpe/git:latest
 
 RUN \
 	yes | pacman -Syu \

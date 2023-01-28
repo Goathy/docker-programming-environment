@@ -1,4 +1,4 @@
-FROM dpe/base:arch
+FROM dpe/base:latest
 
 ARG VERSION
 ARG PACKAGE="Python-$VERSION.tar.xz"

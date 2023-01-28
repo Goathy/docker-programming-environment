@@ -1,4 +1,4 @@
-FROM dpe/tmux:arch
+FROM dpe/tmux:latest
 
 ARG USER="base"
 ARG USER_UID="1000"
