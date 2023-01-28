@@ -59,7 +59,7 @@ build-node18-arch: build-base-arch
 build-golang1.19-arch: build-base-arch
 	@docker image build \
 		--no-cache \
-		--build-arg "VERSION=1.19.1" \
+		--build-arg "VERSION=1.19.5" \
 		--tag "dpe/golang1.19:arch" \
 		--file "$(shell pwd)/golang/Dockerfile" \
 		"$(shell pwd)/golang"
