@@ -46,11 +46,11 @@ build-node19: build-base
 		--file "$(shell pwd)/node/Dockerfile" \
 		"$(shell pwd)/node"
 
-build-golang1.19: build-base
+build-golang1.20: build-base
 	@docker image build \
 		--no-cache \
-		--build-arg "VERSION=1.19.5" \
-		--tag "dpe/golang:1.19" \
+		--build-arg "VERSION=1.20.1" \
+		--tag "dpe/golang:1.20" \
 		--file "$(shell pwd)/golang/Dockerfile" \
 		"$(shell pwd)/golang"
 
