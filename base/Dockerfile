@@ -18,6 +18,7 @@ RUN \
 	git \
 	sudo \
 	neovim \
+	tmux \
 	which \
 	zsh \
 	openssh \
@@ -25,13 +26,14 @@ RUN \
 	&& useradd --uid "${USER_UID}" --gid "${USER_GID}" -m "${USER}" \	
 	&& echo "${USER} ALL=(root) NOPASSWD:ALL" > "/etc/sudoers.d/${USER}" \
 	&& chmod 0440 "/etc/sudoers.d/${USER}" \
-	&& git clone "https://github.com/ohmyzsh/ohmyzsh.git" "${HOMEDIR}/.oh-my-zsh" \
-	&& git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOMEDIR}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" \
-	&& git clone "https://github.com/zsh-users/zsh-autosuggestions" "${HOMEDIR}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" \
-	&& git clone "https://github.com/Goathy/dotfiles" "${HOMEDIR}/.dotfiles" \
+	&& git clone --depth 1 "https://github.com/ohmyzsh/ohmyzsh.git" "${HOMEDIR}/.oh-my-zsh" \
+	&& git clone --depth 1 "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOMEDIR}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" \
+	&& git clone --depth 1 "https://github.com/zsh-users/zsh-autosuggestions" "${HOMEDIR}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" \
+	&& git clone --depth 1 "https://github.com/Goathy/dotfiles" "${HOMEDIR}/.dotfiles" \
 	&& ln -s "${HOMEDIR}/.dotfiles/.zshrc" "${HOMEDIR}/.zshrc" \
 	&& ln -s "${HOMEDIR}/.dotfiles/tmux/.tmux.conf" "${HOMEDIR}/.tmux.conf" \
 	&& sed -i -e 's/export ZSH=\"<path>\"/export ZSH=${HOME}\/.oh-my-zsh/' "${HOMEDIR}/.zshrc" \
+	&& git clone --depth 1 "https://github.com/wbthomason/packer.nvim" "${HOMEDIR}/.local/share/nvim/site/pack/packer/start/packer.nvim" \
 	&& mkdir -p "${HOMEDIR}/.vscode-server" \
 	&& chown -R "${USER}":"${USER}" "${HOMEDIR}/.vscode-server"
 
