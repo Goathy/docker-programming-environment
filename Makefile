@@ -5,21 +5,7 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-build-git:
-	@docker image build \
-		--no-cache \
-		--tag "dpe/git:latest" \
-		--file "$(shell pwd)/git/Dockerfile" \
-		"$(shell pwd)/git"
-
-build-tmux: build-git
-	@docker image build \
-		--no-cache \
-		--tag "dpe/tmux:latest" \
-		--file "$(shell pwd)/tmux/Dockerfile" \
-		"$(shell pwd)/tmux"
-
-build-base: build-tmux
+build-base: 
 	@docker image build \
 		--no-cache \
 		--tag "dpe/base:latest" \
