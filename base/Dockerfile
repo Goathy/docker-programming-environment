@@ -33,7 +33,6 @@ RUN \
 	&& ln -s "${HOMEDIR}/.dotfiles/.zshrc" "${HOMEDIR}/.zshrc" \
 	&& ln -s "${HOMEDIR}/.dotfiles/tmux/.tmux.conf" "${HOMEDIR}/.tmux.conf" \
 	&& sed -i -e 's/export ZSH=\"<path>\"/export ZSH=${HOME}\/.oh-my-zsh/' "${HOMEDIR}/.zshrc" \
-	&& git clone --depth 1 "https://github.com/wbthomason/packer.nvim" "${HOMEDIR}/.local/share/nvim/site/pack/packer/start/packer.nvim" \
 	&& mkdir -p "${HOMEDIR}/.vscode-server" \
 	&& chown -R "${USER}":"${USER}" "${HOMEDIR}/.vscode-server"
 
