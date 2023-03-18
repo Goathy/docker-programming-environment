@@ -7,6 +7,7 @@ ARG HOMEDIR="/home/${USER}"
 
 ENV SHELL="/usr/bin/zsh"
 ENV EDITOR="/usr/bin/nvim"
+ENV TERM="xterm-256color"
 
 
 RUN \
