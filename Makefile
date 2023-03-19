@@ -15,7 +15,7 @@ build-base:
 build-node18: build-base
 	@docker image build \
 		--no-cache \
-		--build-arg "NODE_VERSION=18.13.0" \
+		--build-arg "NODE_VERSION=18.15.0" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
 		--tag "dpe/node:18" \
