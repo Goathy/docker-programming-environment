@@ -44,7 +44,7 @@ build-golang1.20: build-base
 build-python3.11: build-base
 	@docker image build \
 		--no-cache \
-		--build-arg "VERSION=3.11.1" \
+		--build-arg "VERSION=3.11.2" \
 		--tag "dpe/python:3.11" \
 		--file "$(shell pwd)/python/Dockerfile" \
 		"$(shell pwd)/python"
