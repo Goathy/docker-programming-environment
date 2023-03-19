@@ -25,7 +25,7 @@ build-node18: build-base
 build-node19: build-base
 	@docker image build \
 		--no-cache \
-		--build-arg "NODE_VERSION=19.5.0" \
+		--build-arg "NODE_VERSION=19.8.1" \
 		--build-arg "YARN_VERSION=1.22.19" \
 		--build-arg "ARCH=x64" \
 		--tag "dpe/node:19" \
